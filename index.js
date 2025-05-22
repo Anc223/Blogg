@@ -1,12 +1,18 @@
 const express=require("express")
-const app=express()
 const bodyparser=require("body-parser")
-app.use(bodyparser.json())
 const db=require("./dbConnection")
+const cors=require("cors")
+const Router=require("./Router")
 
-// const Router=require("./Router")
-// app.use("/",Router)
+const app=express()
+app.use(cors());
 
-app.listen(4000,function(){
-    console.log("Server running successfully at 4000");
+app.use(bodyparser.json())
+
+app.use(express.static(`${__dirname}/upload`));
+
+app.use("/",Router)
+
+app.listen(4001,function(){
+    console.log("Server running successfully at 4001");
 })

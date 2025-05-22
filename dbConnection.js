@@ -1,5 +1,5 @@
 const mongoose=require("mongoose")
-mongoose.connect("mongodb://127.0.0.1/bloggingplatform")
+mongoose.connect("mongodb://127.0.0.1/blogging")
 var db=mongoose.connection
 db.on("error",console.error.bind("error"))
 db.once("open",function(){
